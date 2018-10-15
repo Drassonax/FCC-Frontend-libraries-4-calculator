@@ -12,6 +12,11 @@ class MathElements extends React.Component {
     }
 
     currentNum = (e) => {
+        const btn = document.getElementById(e.target.id)
+        btn.setAttribute('class', 'col-md-1 number activated')
+        setTimeout(() => {
+            btn.setAttribute('class', 'col-md-1 number')
+        }, 100)
         if (this.props.currentExpression.includes('=')) {
             this.props.clearExpression()
             this.setState({ num: parseInt(e.target.value) })
@@ -28,6 +33,11 @@ class MathElements extends React.Component {
         }
     }
     currentOperator = (e) => {
+        const btn = document.getElementById(e.target.id)
+        btn.setAttribute('class', 'col-md-1 operator activated')
+        setTimeout(() => {
+            btn.setAttribute('class', 'col-md-1 operator')
+        }, 100)
         if (this.props.currentExpression.includes('=')) {
             this.props.continueCalculating()
             this.setState({ num: 0 })
@@ -37,7 +47,12 @@ class MathElements extends React.Component {
         }
         this.props.setCurrentExpression(e.target.value)
     }
-    placeDecimalPoint = () => {
+    placeDecimalPoint = (e) => {
+        const btn = document.getElementById(e.target.id)
+        btn.setAttribute('class', 'col-md-1 number activated')
+        setTimeout(() => {
+            btn.setAttribute('class', 'col-md-1 number')
+        }, 100)
         if (this.props.currentExpression.includes('=')) {
             this.props.clearExpression()
             this.setState({ num: '0.' })
@@ -55,8 +70,12 @@ class MathElements extends React.Component {
             }
         }
     }
-
-    calculate = () => {
+    calculate = (e) => {
+        const btn = document.getElementById(e.target.id)
+        btn.setAttribute('class', 'col-md-1 activated')
+        setTimeout(() => {
+            btn.setAttribute('class', 'col-md-1')
+        }, 100)
         if (/\d/.test(this.props.currentExpression) && !this.props.currentExpression.includes('=')) {
             this.props.pushExpression()
             this.props.performMath()
@@ -65,27 +84,31 @@ class MathElements extends React.Component {
 
     render() {
         return (
-            <div>
-                <div id="numbers">
-                    <button className="number" id="zero" value="0" onClick={this.currentNum}>0</button>
-                    <button className="number" id="one" value="1" onClick={this.currentNum}>1</button>
-                    <button className="number" id="two" value="2" onClick={this.currentNum}>2</button>
-                    <button className="number" id="three" value="3" onClick={this.currentNum}>3</button>
-                    <button className="number" id="four" value="4" onClick={this.currentNum}>4</button>
-                    <button className="number" id="five" value="5" onClick={this.currentNum}>5</button>
-                    <button className="number" id="six" value="6" onClick={this.currentNum}>6</button>
-                    <button className="number" id="seven" value="7" onClick={this.currentNum}>7</button>
-                    <button className="number" id="eight" value="8" onClick={this.currentNum}>8</button>
-                    <button className="number" id="nine" value="9" onClick={this.currentNum}>9</button>
-                    <button className="number" id="decimal" value="." onClick={this.placeDecimalPoint}>.</button>
+            <div className="container">
+                <div className="row justify-content-center">
+                    <button className="col-3 col-md-1 number" id="seven" value="7" onClick={this.currentNum}>7</button>
+                    <button className="col-3 col-md-1 number" id="eight" value="8" onClick={this.currentNum}>8</button>
+                    <button className="col-3 col-md-1 number" id="nine" value="9" onClick={this.currentNum}>9</button>
+                    <button className="col-3 col-md-1 operator" id="divide" value="/" onClick={this.currentOperator}>/</button>
                 </div>
-                <div id=" operators">
-                    <button className="operator" id="add" value="+" onClick={this.currentOperator}>+</button>
-                    <button className="operator" id="subtract" value="-" onClick={this.currentOperator}>-</button>
-                    <button className="operator" id="multiply" value="*" onClick={this.currentOperator}>*</button>
-                    <button className="operator" id="divide" value="/" onClick={this.currentOperator}>/</button>
+                <div className="row justify-content-center">
+                    <button className="col-3 col-md-1 number" id="four" value="4" onClick={this.currentNum}>4</button>
+                    <button className="col-3 col-md-1 number" id="five" value="5" onClick={this.currentNum}>5</button>
+                    <button className="col-3 col-md-1 number" id="six" value="6" onClick={this.currentNum}>6</button>
+                    <button className="col-3 col-md-1 operator" id="multiply" value="*" onClick={this.currentOperator}>*</button>
                 </div>
-                <button className="operator" id="equals" value="=" onClick={this.calculate}>=</button>
+                <div className="row justify-content-center">
+                    <button className="col-3 col-md-1 number" id="one" value="1" onClick={this.currentNum}>1</button>
+                    <button className="col-3 col-md-1 number" id="two" value="2" onClick={this.currentNum}>2</button>
+                    <button className="col-3 col-md-1 number" id="three" value="3" onClick={this.currentNum}>3</button>
+                    <button className="col-3 col-md-1 operator" id="subtract" value="-" onClick={this.currentOperator}>-</button>
+                </div>
+                <div className="row justify-content-center">
+                    <button className="col-3 col-md-1 number" id="decimal" value="." onClick={this.placeDecimalPoint}>.</button>
+                    <button className="col-3 col-md-1 number" id="zero" value="0" onClick={this.currentNum}>0</button>
+                    <button className="col-3 col-md-1" id="equals" value="=" onClick={this.calculate}>=</button>
+                    <button className="col-3 col-md-1 operator" id="add" value="+" onClick={this.currentOperator}>+</button>
+                </div>
             </div>
         )
     }

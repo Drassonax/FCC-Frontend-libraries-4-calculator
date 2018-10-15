@@ -22,6 +22,11 @@ class App extends React.Component {
             expression: [],
             currentExpression: '0',
         })
+        const clearButton = document.getElementById('clear')
+        clearButton.setAttribute('class', 'col-md-1 clear-activated')
+        setTimeout(() => {
+            clearButton.setAttribute('class', 'col-md-1')
+        }, 100);
     }
     setCurrentExpression = (exp) => {
         this.setState({ currentExpression: exp })
@@ -67,20 +72,20 @@ class App extends React.Component {
     render() {
         return (
             <div id="calculator">
-                <MathElements 
-                  expression={this.state.expression}
-                  currentExpression={this.state.currentExpression}
-                  clearExpression={this.clearExpression}
-                  setCurrentExpression={this.setCurrentExpression}
-                  pushExpression={this.pushExpression}
-                  performMath={this.performMath}
-                  continueCalculating={this.continueCalculating}
-                />
-                <Display 
-                  expression={this.state.expression} 
-                  currentExpression={this.state.currentExpression} 
-                  clearExpression={this.clearExpression} 
-                />
+                    <Display 
+                    expression={this.state.expression} 
+                    currentExpression={this.state.currentExpression} 
+                    clearExpression={this.clearExpression} 
+                    />
+                    <MathElements 
+                    expression={this.state.expression}
+                    currentExpression={this.state.currentExpression}
+                    clearExpression={this.clearExpression}
+                    setCurrentExpression={this.setCurrentExpression}
+                    pushExpression={this.pushExpression}
+                    performMath={this.performMath}
+                    continueCalculating={this.continueCalculating}
+                    />
             </div>
         )
     }

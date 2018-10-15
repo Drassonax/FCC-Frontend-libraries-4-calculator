@@ -1,0 +1,35 @@
+#calculator {
+    margin: 5% 0 5% 0;
+    font-size: 22px;
+}
+#display {
+    background-color: #c6ddcb;
+}
+#display-expression {
+    text-align: end;
+}
+#display-current-item {
+    text-align: end;
+}
+button {
+    border: 1px solid darken(#e3dddb, 10%);
+}
+#clear {
+    background-color: #c0272a;
+    color: white;
+    height: 4.5rem;
+}
+.clear-activated {
+    background-color: darken(#c0272a, 10%) !important;
+}
+.number {
+    height: 5rem;
+}
+.operator {
+    height: 5rem;
+    background-color: #e3dddb;
+}
+.activated {
+    background-color: #6ba488;
+    color: white;
+}
