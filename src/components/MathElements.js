@@ -13,9 +13,9 @@ class MathElements extends React.Component {
 
     currentNum = (e) => {
         const btn = document.getElementById(e.target.id)
-        btn.setAttribute('class', 'col-md-1 number activated')
+        btn.setAttribute('class', 'col-3 col-md-1 number activated')
         setTimeout(() => {
-            btn.setAttribute('class', 'col-md-1 number')
+            btn.setAttribute('class', 'col-3 col-md-1 number')
         }, 100)
         if (this.props.currentExpression.includes('=')) {
             this.props.clearExpression()
@@ -34,9 +34,9 @@ class MathElements extends React.Component {
     }
     currentOperator = (e) => {
         const btn = document.getElementById(e.target.id)
-        btn.setAttribute('class', 'col-md-1 operator activated')
+        btn.setAttribute('class', 'col-3 col-md-1 operator activated')
         setTimeout(() => {
-            btn.setAttribute('class', 'col-md-1 operator')
+            btn.setAttribute('class', 'col-3 col-md-1 operator')
         }, 100)
         if (this.props.currentExpression.includes('=')) {
             this.props.continueCalculating()
@@ -49,9 +49,9 @@ class MathElements extends React.Component {
     }
     placeDecimalPoint = (e) => {
         const btn = document.getElementById(e.target.id)
-        btn.setAttribute('class', 'col-md-1 number activated')
+        btn.setAttribute('class', 'col-3 col-md-1 number activated')
         setTimeout(() => {
-            btn.setAttribute('class', 'col-md-1 number')
+            btn.setAttribute('class', 'col-3 col-md-1 number')
         }, 100)
         if (this.props.currentExpression.includes('=')) {
             this.props.clearExpression()
@@ -72,9 +72,9 @@ class MathElements extends React.Component {
     }
     calculate = (e) => {
         const btn = document.getElementById(e.target.id)
-        btn.setAttribute('class', 'col-md-1 activated')
+        btn.setAttribute('class', 'col-3 col-md-1 activated')
         setTimeout(() => {
-            btn.setAttribute('class', 'col-md-1')
+            btn.setAttribute('class', 'col-3 col-md-1')
         }, 100)
         if (/\d/.test(this.props.currentExpression) && !this.props.currentExpression.includes('=')) {
             this.props.pushExpression()

@@ -23,9 +23,9 @@ class App extends React.Component {
             currentExpression: '0',
         })
         const clearButton = document.getElementById('clear')
-        clearButton.setAttribute('class', 'col-md-1 clear-activated')
+        clearButton.setAttribute('class', 'col-3 col-md-1 clear-activated')
         setTimeout(() => {
-            clearButton.setAttribute('class', 'col-md-1')
+            clearButton.setAttribute('class', 'col-3 col-md-1')
         }, 100);
     }
     setCurrentExpression = (exp) => {
